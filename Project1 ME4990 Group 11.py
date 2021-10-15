@@ -15,7 +15,7 @@ class Manometer:
     self.vari = StringVar() 
     self.var = DoubleVar()
     self.sel = StringVar()
-    self.photo = PhotoImage(file = r"Capture (1).png")
+    self.photo = PhotoImage(file = r"Monometer.PNG")
     self.custom_liquid = IntVar()
     self.dens_label = IntVar()
 
@@ -31,16 +31,16 @@ class Manometer:
     self.sub_title.place(x= 225,y = 30)
 
 #left side manometer
-    self.left_manometer = Scale( self.root, variable = self.h1, from_ = 999, to = 0,orient = VERTICAL, fg = "black", troughcolor = 'cyan', sliderlength = 5, activebackground = 'blue' ) 
+    self.left_manometer = Scale( self.root, variable = self.h1, from_ = 999, to = 0,orient = VERTICAL, fg = "black", troughcolor = '#6ed6fc', sliderlength = 5, activebackground = 'blue' ) 
 #left manometer location
-    self.left_manometer.place(x = 1, y = 151)
+    self.left_manometer.place(x = 7, y = 151)
 
 
 
 #right side manometer
-    self.right_manometer = Scale( self.root, variable = self.h2, from_ = 999, to = 0, orient = VERTICAL, fg = "black", troughcolor = 'cyan', sliderlength = 5, activebackground = 'blue') 
+    self.right_manometer = Scale( self.root, variable = self.h2, from_ = 999, to = 0, orient = VERTICAL, fg = "black", troughcolor = '#6ed6fc', sliderlength = 5, activebackground = 'blue') 
 #right manometer location
-    self.right_manometer.place(x = 105, y = 151)
+    self.right_manometer.place(x = 83, y = 151)
 
 
 # using picture of a u tube. Button command is to subtract the left manometer height from the right side  
@@ -68,8 +68,8 @@ class Manometer:
     self.fluid_label.place(x= 200,y = 200)
 
 ##label that displays density value
-    self.dens_label = Label(self.root)
-    self.dens_label.place(x=350, y = 300)
+    self.dens_label = Label(self.root, relief="raised")
+    self.dens_label.place(x=200, y = 400)
 
 
 #radio buttons that feed density value to the get_pressure functions
@@ -111,7 +111,7 @@ class Manometer:
 
 #function that shows the density value of the selected 
   def info(self):
-   self.selection = "The selected fluid has a density of " + str(self.var.get()) + " kg/m^3" + ' or ' + str(round(self.var.get()/16.018463,1)) + ' slug/ft^3'
+   self.selection = "The selected fluid has a density of " + str(self.var.get()) + " kg/m^3" + ' or ' + str(round(self.var.get()/16.018463,1)) + ' lb/ft^3'
    self.dens_label.config(text = self.selection)
 
 
